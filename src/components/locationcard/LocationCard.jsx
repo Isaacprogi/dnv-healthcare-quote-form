@@ -1,10 +1,8 @@
 import TextInput from "../textinput/TextInput";
 import Checkbox from "../checkbox/Checkbox";
 import styles from "./LocationCard.module.css";
+import { DAYS } from "../../data";
 
-const DAYS = ["M", "T", "W", "TH", "F", "SA", "SU"];
-
-/** LocationCard — one "Practice Location N" block in manual Site Information entry. */
 export default function LocationCard({ index, location, onChange, onRemove }) {
   const toggleDay = (day) => {
     const daysOpen = location.daysOpen.includes(day)

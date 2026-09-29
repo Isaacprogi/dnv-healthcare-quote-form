@@ -1,11 +1,6 @@
 import cx from "../../utils/cx";
 import styles from "./FormField.module.css";
 
-/**
- * FormField — Figma "Inputs" wrapper: bold 16px label (with red asterisk
- * when required), the control, then optional helper / error text.
- * Label → control gap is 8px, so label + 44px control = 75px.
- */
 export default function FormField({
   label,
   required,

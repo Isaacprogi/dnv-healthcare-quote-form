@@ -1,11 +1,13 @@
 import cx from "../../utils/cx";
 import styles from "./RadioCard.module.css";
 
-/**
- * RadioCard — Figma "Option": a bordered, clickable choice tile used for
- * "Single / Multiple Locations" and "Upload CSV / Manual Entry".
- */
-export default function RadioCard({ title, description, selected, onSelect, name }) {
+export default function RadioCard({
+  title,
+  description,
+  selected,
+  onSelect,
+  name,
+}) {
   return (
     <button
       type="button"

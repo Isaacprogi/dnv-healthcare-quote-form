@@ -22,10 +22,7 @@ export function zip(value) {
   return /^\d{5}(-\d{4})?$/.test(value) ? "" : "Enter a valid ZIP code.";
 }
 
-/**
- * validateStep1 — Identify Healthcare Organization.
- * Returns a field->message error map; empty object means valid.
- */
+
 export function validateStep1({ organization, primaryContact }) {
   const errors = {};
   if (required(organization.legalEntityName)) errors.legalEntityName = "Legal Entity Name is required.";

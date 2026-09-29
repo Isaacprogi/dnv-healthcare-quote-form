@@ -3,7 +3,6 @@ import { CaretDownIcon } from "../icons/CaretDownIcon";
 import cx from "../../utils/cx";
 import styles from "./SelectField.module.css";
 
-/** SelectControl — the bare styled <select> (44px, caret at right). */
 export function SelectControl({
   id,
   value,
@@ -18,7 +17,11 @@ export function SelectControl({
     <div className={styles.wrap}>
       <select
         id={id}
-        className={cx(styles.select, !value && styles.placeholder, invalid && styles.invalid)}
+        className={cx(
+          styles.select,
+          !value && styles.placeholder,
+          invalid && styles.invalid,
+        )}
         value={value}
         disabled={disabled}
         aria-label={ariaLabel}
@@ -38,9 +41,22 @@ export function SelectControl({
 }
 
 /** SelectField — labeled dropdown (Figma "Drop down"). */
-export default function SelectField({ id, label, required, error, hint, ...control }) {
+export default function SelectField({
+  id,
+  label,
+  required,
+  error,
+  hint,
+  ...control
+}) {
   return (
-    <FormField id={id} label={label} required={required} error={error} hint={hint}>
+    <FormField
+      id={id}
+      label={label}
+      required={required}
+      error={error}
+      hint={hint}
+    >
       <SelectControl id={id} invalid={!!error} {...control} />
     </FormField>
   );

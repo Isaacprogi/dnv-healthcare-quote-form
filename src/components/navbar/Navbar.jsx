@@ -1,10 +1,6 @@
 import cx from "../../utils/cx";
 import styles from "./Navbar.module.css";
 
-/**
- * Navbar — Figma "Header". Step 1 uses the 72px bar with the user
- * profile on the right; Steps 2-6 use the taller centered-brand bar.
- */
 export default function Navbar({ step = 1 }) {
   const isFirstStep = step === 1;
 

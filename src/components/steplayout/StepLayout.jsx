@@ -4,11 +4,6 @@ import SupportChat from "../supportchat/SupportChat";
 import cx from "../../utils/cx";
 import styles from "./StepLayout.module.css";
 
-/**
- * StepLayout — the page chrome every step shares: the progress header,
- * a content column, and the footer with Previous/Exit on the left and
- * Save / Continue (or Submit) on the right, plus the Support Chat pill.
- */
 export default function StepLayout({
   currentStep,
   children,
@@ -22,7 +17,9 @@ export default function StepLayout({
 }) {
   return (
     <>
-      <main className={cx(styles.layout, currentStep === 1 && styles.firstStep)}>
+      <main
+        className={cx(styles.layout, currentStep === 1 && styles.firstStep)}
+      >
         <StepHeader currentStep={currentStep} />
 
         <div className={styles.content}>{children}</div>
@@ -41,9 +38,7 @@ export default function StepLayout({
             )}
           </div>
           <div className={styles.end}>
-            {onSave && (
-              <Button onClick={onSave}>Save</Button>
-            )}
+            {onSave && <Button onClick={onSave}>Save</Button>}
             <Button onClick={onContinue} disabled={continueDisabled}>
               {continueLabel}
             </Button>

@@ -2,15 +2,8 @@ import { useRef, useState } from "react";
 import { UploadCloudIcon } from "../icons/Icons";
 import cx from "../../utils/cx";
 import styles from "./UploadField.module.css";
+import { VALID_EXTENSIONS } from "../../data";
 
-const VALID_EXTENSIONS = [".csv", ".xlsx", ".xls"];
-
-/**
- * UploadField — Figma "Upload Field": dashed drop zone with the cloud
- * glyph, a "Select file" button, and a "Download CSV Template" link.
- * Accepts multiple files, by click or by drag-and-drop; both paths call
- * onFilesSelect with the same plain array of File objects.
- */
 export default function UploadField({ onFilesSelect, onDownloadTemplate }) {
   const [isDragging, setIsDragging] = useState(false);
   const dragCounter = useRef(0);
@@ -45,7 +38,7 @@ export default function UploadField({ onFilesSelect, onDownloadTemplate }) {
     setIsDragging(false);
 
     const validFiles = Array.from(e.dataTransfer.files || []).filter((file) =>
-      VALID_EXTENSIONS.some((ext) => file.name.toLowerCase().endsWith(ext))
+      VALID_EXTENSIONS.some((ext) => file.name.toLowerCase().endsWith(ext)),
     );
     if (validFiles.length > 0) onFilesSelect(validFiles);
   };
@@ -67,7 +60,9 @@ export default function UploadField({ onFilesSelect, onDownloadTemplate }) {
       <div className={styles.bottom}>
         <div className={styles.description}>
           <p className={styles.title}>Upload Site Information</p>
-          <p className={styles.hint}>Drag and drop your CSV or Excel files here, or click to select</p>
+          <p className={styles.hint}>
+            Drag and drop your CSV or Excel files here, or click to select
+          </p>
         </div>
         <div className={styles.actions}>
           <label className={styles.selectButton}>
@@ -80,7 +75,11 @@ export default function UploadField({ onFilesSelect, onDownloadTemplate }) {
               className={styles.hiddenInput}
             />
           </label>
-          <button type="button" className={styles.templateLink} onClick={onDownloadTemplate}>
+          <button
+            type="button"
+            className={styles.templateLink}
+            onClick={onDownloadTemplate}
+          >
             Download CSV Template
           </button>
         </div>

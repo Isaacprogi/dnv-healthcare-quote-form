@@ -4,19 +4,8 @@ import { SelectControl } from "../selectfield/SelectField";
 import FormField from "../formfield/FormField";
 import shared from "../../steps/Shared.module.css";
 import styles from "./ContactFieldset.module.css";
+import { US_STATES } from "../../data";
 
-const US_STATES = [
-  "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA",
-  "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
-  "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT",
-  "VA", "WA", "WV", "WI", "WY",
-];
-
-/**
- * ContactFieldset — one leadership contact block (Figma "Background"),
- * reused for CEO / Director of Quality / Invoicing Contact. `withAddress`
- * adds the Invoicing Contact's Billing Address fields.
- */
 export default function ContactFieldset({
   title,
   contact,
@@ -38,7 +27,7 @@ export default function ContactFieldset({
             phone: primaryContact.workPhone,
             email: primaryContact.email,
           }
-        : { sameAsPrimary: false }
+        : { sameAsPrimary: false },
     );
   };
 
@@ -115,7 +104,12 @@ export default function ContactFieldset({
               error={errors.city}
               onChange={(v) => onChange({ city: v })}
             />
-            <FormField id={`${idPrefix}-state`} label="State" required error={errors.state}>
+            <FormField
+              id={`${idPrefix}-state`}
+              label="State"
+              required
+              error={errors.state}
+            >
               <SelectControl
                 id={`${idPrefix}-state`}
                 value={contact.state}

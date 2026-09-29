@@ -1,8 +1,13 @@
 import { SearchIcon } from "../icons/Icons";
 import styles from "./SearchField.module.css";
 
-/** SearchField — Figma search input: 44px, placeholder + 16px search glyph at right. */
-export default function SearchField({ id, value, onChange, placeholder = "Search services...", ariaLabel }) {
+export default function SearchField({
+  id,
+  value,
+  onChange,
+  placeholder = "Search services...",
+  ariaLabel,
+}) {
   return (
     <div className={styles.wrap}>
       <input

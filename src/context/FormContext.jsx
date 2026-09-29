@@ -1,12 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
 
-/**
- * Central form state for the whole six-step quote request.
- * Kept as one flat-ish object (mirroring the Figma "Review &
- * Submit" summary) rather than one useState per field, so a
- * single reducer action can update any step's slice and the
- * final payload is just `state` with no re-shaping needed.
- */
 
 export const initialFormState = {
   organization: {

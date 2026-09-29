@@ -14,18 +14,33 @@
   border-bottom: 1px solid var(--color-gray-7);
 }
 
-.headerTitle {
+.toggle {
   display: flex;
   align-items: center;
   gap: 8px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.headerTitle {
   font-size: 20px;
   font-weight: var(--fw-bold);
   color: var(--color-white);
 }
 
 .chevron {
+  flex: none;
   width: 24px;
   height: 24px;
+  color: var(--color-white);
+  transition: transform 150ms ease;
+}
+
+/* Chevron points up when open (Figma default); rotate to point down when collapsed */
+.chevronClosed {
+  transform: rotate(180deg);
 }
 
 .edit {

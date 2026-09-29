@@ -1,8 +1,14 @@
 import cx from "../../utils/cx";
 import styles from "./RadioOption.module.css";
 
-/** RadioOption — Figma "Select / Single-Select" row (20px radio + Bold 16px label). */
-export default function RadioOption({ id, name, label, checked, onChange, error = false }) {
+export default function RadioOption({
+  id,
+  name,
+  label,
+  checked,
+  onChange,
+  error = false,
+}) {
   return (
     <label className={cx(styles.root, error && styles.error)} htmlFor={id}>
       <span className={styles.control}>

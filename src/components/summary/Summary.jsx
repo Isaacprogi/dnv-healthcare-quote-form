@@ -1,22 +1,49 @@
+import { useId, useState } from "react";
 import { ChevronUpIcon } from "../icons/Icons";
 import Chip from "../chip/Chip";
 import cx from "../../utils/cx";
 import styles from "./Summary.module.css";
 
-/** SummarySection — Figma "Border": a navy header ("Basic Information" + Edit) over rows. */
-export function SummarySection({ title, onEdit, children }) {
+export function SummarySection({
+  title,
+  onEdit,
+  children,
+  defaultOpen = true,
+}) {
+  const [open, setOpen] = useState(defaultOpen);
+  const bodyId = useId();
+
   return (
     <div className={styles.section}>
       <div className={styles.header}>
-        <span className={styles.headerTitle}>
-          <ChevronUpIcon className={styles.chevron} />
-          {title}
-        </span>
-        <button type="button" className={styles.edit} onClick={onEdit}>
+        <button
+          type="button"
+          className={styles.toggle}
+          aria-expanded={open}
+          aria-controls={bodyId}
+          onClick={() => setOpen((o) => !o)}
+        >
+          <ChevronUpIcon
+            className={cx(styles.chevron, !open && styles.chevronClosed)}
+          />
+          <span className={styles.headerTitle}>{title}</span>
+        </button>
+        <button
+          type="button"
+          className={styles.edit}
+          onClick={(e) => {
+            e.stopPropagation();
+            onEdit();
+          }}
+        >
           Edit
         </button>
       </div>
-      <div className={styles.body}>{children}</div>
+      {open && (
+        <div id={bodyId} className={styles.body}>
+          {children}
+        </div>
+      )}
     </div>
   );
 }

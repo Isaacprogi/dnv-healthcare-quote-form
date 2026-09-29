@@ -1,10 +1,6 @@
 import cx from "../../utils/cx";
 import styles from "./Checkbox.module.css";
 
-/**
- * Checkbox — Figma "Checkbox" (Sm, 20px). A visually-hidden native input
- * drives an aria-hidden drawn box, so keyboard + screen-reader behaviour
- */
 export default function Checkbox({
   id,
   label,
@@ -15,7 +11,11 @@ export default function Checkbox({
 }) {
   return (
     <label
-      className={cx(styles.root, disabled && styles.disabled, error && styles.error)}
+      className={cx(
+        styles.root,
+        disabled && styles.disabled,
+        error && styles.error,
+      )}
       htmlFor={id}
     >
       <span className={styles.control}>

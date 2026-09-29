@@ -2,11 +2,6 @@ import FormField from "../formfield/FormField";
 import cx from "../../utils/cx";
 import styles from "./TextInput.module.css";
 
-/**
- * TextInput — controlled text/email/tel/number input (Figma "Inputs").
- * Validation lives in the steps / validation.js; this only renders
- * the error state it is given.
- */
 export default function TextInput({
   id,
   label,
@@ -20,7 +15,13 @@ export default function TextInput({
   disabled = false,
 }) {
   return (
-    <FormField id={id} label={label} required={required} error={error} hint={hint}>
+    <FormField
+      id={id}
+      label={label}
+      required={required}
+      error={error}
+      hint={hint}
+    >
       <input
         id={id}
         type={type}

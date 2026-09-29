@@ -4,11 +4,6 @@ import Chip from "../chip/Chip";
 import { formatDate } from "../../utils/format";
 import styles from "./DateTagInput.module.css";
 
-/**
- * DateTagInput — Figma "Multiple Datepicker-input": pick a date and it is
- * appended as a removable blue chip below the field. Used for the
- * thrombolytic / thrombectomy history, which can hold many entries.
- */
 export default function DateTagInput({ id, label, values, onChange, max }) {
   const atLimit = Boolean(max) && values.length >= max;
 
