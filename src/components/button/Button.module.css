@@ -1,0 +1,94 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+  font-family: var(--font-base);
+  font-weight: var(--fw-bold);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+/* ---- Sizes ---- */
+.md {
+  height: 48px;
+  padding: 0 32px;
+  font-size: 16px;
+}
+
+.sm {
+  height: 35px;
+  padding: 0 24px;
+  font-size: 14px;
+  box-shadow: var(--shadow-button);
+}
+
+/* ---- Primary (Main Blue) ---- */
+.primary {
+  background: var(--color-blue-dark);
+  border-color: var(--color-blue-dark);
+  color: var(--color-white);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--color-blue-primary);
+  border-color: var(--color-blue-primary);
+}
+
+.primary:focus-visible {
+  outline: none;
+  border-color: var(--color-blue-a11y);
+  box-shadow: 0 0 0 0.5px var(--color-blue-a11y);
+}
+
+.primary:disabled {
+  background: var(--color-gray-6);
+  border-color: var(--color-gray-6);
+  color: var(--color-white);
+  cursor: not-allowed;
+}
+
+/* ---- Secondary (outlined) ---- */
+.secondary {
+  background: var(--color-white);
+  border-color: var(--color-blue-dark);
+  color: var(--color-blue-dark);
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--color-blue-tint);
+  border-color: var(--color-blue-tint);
+  color: var(--color-blue-primary);
+}
+
+.secondary:focus-visible {
+  outline: none;
+  background: var(--color-blue-tint);
+  border-color: var(--color-blue-primary);
+  box-shadow: 0 0 0 0.5px var(--color-blue-primary);
+}
+
+.secondary:disabled {
+  background: var(--color-gray-6);
+  border-color: var(--color-gray-6);
+  color: var(--color-white);
+  cursor: not-allowed;
+}
+
+/* ---- Link ("Word button": Download CSV Template) ---- */
+.link {
+  padding: 2px 8px;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: var(--fw-medium);
+  color: var(--color-blue-primary);
+}
+
+.link:hover:not(:disabled) {
+  text-decoration: underline;
+}

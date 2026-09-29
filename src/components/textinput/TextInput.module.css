@@ -1,0 +1,38 @@
+/* Figma "Input": 44px tall, 1px #BBB border, 6px radius, 14px Medium text.
+   Other controls (select, date) `compose` this class so they stay identical. */
+.input {
+  width: 100%;
+  height: 44px;
+  padding: 0 13px;
+  border: 1px solid var(--color-gray-5);
+  border-radius: 6px;
+  background: var(--color-white);
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  line-height: 18px;
+  color: var(--color-black);
+  transition: border-color 120ms ease;
+}
+
+.input::placeholder {
+  color: var(--color-gray-4);
+  opacity: 1;
+}
+
+/* Focused state: 1px #0056A3 stroke */
+.input:focus,
+.input:focus-visible {
+  outline: none;
+  border-color: var(--color-blue-dark);
+}
+
+.invalid,
+.invalid:focus {
+  border-color: var(--color-error);
+}
+
+.input:disabled {
+  background: var(--color-gray-8);
+  color: var(--color-gray-3);
+  cursor: not-allowed;
+}

@@ -1,0 +1,81 @@
+.zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  padding: 40px;
+  border: 1px dashed var(--color-blue-primary);
+  border-radius: 10px;
+  background: var(--color-white);
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-gray-4);
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: var(--fw-bold);
+  color: var(--color-black);
+}
+
+.hint {
+  font-size: 12px;
+  font-weight: var(--fw-regular);
+  color: var(--color-gray-3);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Wraps the hidden <input type=file> as the "Select file" Button look */
+.selectButton {
+  composes: button primary sm from "../button/Button.module.css";
+  display: inline-flex;
+}
+
+.hiddenInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.templateLink {
+  padding: 2px 8px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: var(--fw-medium);
+  color: var(--color-blue-primary);
+  cursor: pointer;
+}
+
+.templateLink:hover {
+  text-decoration: underline;
+}

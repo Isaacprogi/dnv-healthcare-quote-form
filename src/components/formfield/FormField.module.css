@@ -1,0 +1,35 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+}
+
+.label {
+  display: flex;
+  gap: 4px;
+  padding-bottom: 1px;
+  font-size: 16px;
+  font-weight: var(--fw-bold);
+  line-height: normal;
+  color: var(--color-gray-1);
+}
+
+.required {
+  color: var(--color-error);
+}
+
+.hint {
+  font-size: 12px;
+  font-weight: var(--fw-regular);
+  line-height: normal;
+  color: var(--color-gray-3);
+}
+
+.error {
+  font-size: 12px;
+  font-weight: var(--fw-regular);
+  line-height: normal;
+  color: var(--color-error);
+}

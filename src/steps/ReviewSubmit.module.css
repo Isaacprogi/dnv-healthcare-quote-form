@@ -1,0 +1,16 @@
+.terms {
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  color: var(--color-gray-3);
+}
+
+.exportActions {
+  display: flex;
+  gap: 16px;
+}
+
+.success {
+  font-size: 13px;
+  font-weight: var(--fw-medium);
+  color: var(--color-green-dark);
+}

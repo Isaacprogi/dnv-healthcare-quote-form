@@ -1,0 +1,38 @@
+/* Shared layout primitives reused across step files — small, generic
+   grid/row helpers that don't warrant their own component. */
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 16px;
+  width: 100%;
+}
+
+.grid616 {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 0 16px;
+  width: 100%;
+}
+
+.emailRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: -8px;
+}
+
+.fieldError {
+  margin-top: -12px;
+  font-size: 12px;
+  font-weight: var(--fw-regular);
+  color: var(--color-error);
+}
+
+@media (max-width: 640px) {
+  .twoCol,
+  .grid616 {
+    grid-template-columns: 1fr;
+  }
+}

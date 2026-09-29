@@ -1,0 +1,22 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: var(--fw-bold);
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.pending {
+  background: var(--color-yellow-light);
+  color: var(--color-yellow-dark);
+}
+
+.verified {
+  background: var(--color-green-light);
+  color: var(--color-green-dark);
+}

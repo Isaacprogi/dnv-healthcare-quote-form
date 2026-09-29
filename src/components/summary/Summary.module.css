@@ -1,0 +1,128 @@
+.section {
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid var(--color-gray-6);
+  border-radius: 8px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: var(--color-blue-dark);
+  border-bottom: 1px solid var(--color-gray-7);
+}
+
+.headerTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+}
+
+.chevron {
+  width: 24px;
+  height: 24px;
+}
+
+.edit {
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+.edit:hover {
+  text-decoration: underline;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-gray-8);
+}
+
+.body > .row:last-child {
+  border-bottom: none;
+}
+
+.rowLabel {
+  flex: none;
+  width: 200px;
+  font-size: 14px;
+  font-weight: var(--fw-bold);
+  color: var(--color-gray-3);
+}
+
+.rowValue {
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  color: var(--color-gray-1);
+}
+
+.personBox {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 24px;
+  border-radius: 6px;
+  background: var(--color-gray-8);
+}
+
+.personName {
+  font-size: 16px;
+  font-weight: var(--fw-bold);
+  color: var(--color-black);
+}
+
+.personLines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.personLine {
+  font-size: 16px;
+  font-weight: var(--fw-medium);
+  color: var(--color-black);
+}
+
+.chips {
+  display: flex;
+  flex: 1 1 0;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .rowLabel {
+    width: auto;
+  }
+}

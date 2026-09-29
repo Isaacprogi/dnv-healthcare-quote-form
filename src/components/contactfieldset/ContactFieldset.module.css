@@ -1,0 +1,43 @@
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding: 24px;
+  margin: 0;
+  border: 1px solid var(--color-gray-5);
+  border-radius: 8px;
+}
+
+.legend {
+  padding: 0;
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: var(--fw-bold);
+  color: var(--color-gray-1);
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.addressTitle {
+  font-size: 20px;
+  font-weight: var(--fw-bold);
+  color: var(--color-gray-1);
+}
+
+.addressRow {
+  display: grid;
+  grid-template-columns: 264fr 288fr 264fr;
+  gap: 0 16px;
+}
+
+@media (max-width: 640px) {
+  .addressRow {
+    grid-template-columns: 1fr;
+  }
+}

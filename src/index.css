@@ -1,0 +1,104 @@
+/* =========================================================
+   DNV Healthcare — global layer
+   Only things that CANNOT live in a CSS module belong here:
+   design tokens (:root), the box-sizing reset, and body-level
+   defaults. Every component styles itself through its own
+   *.module.css file.
+   Token values are taken straight from the Figma file
+   (Figma Challenges › Frontend Multi Step Form Challenge).
+   ========================================================= */
+
+:root {
+  /* Blue */
+  --color-blue-a11y: #002e55;
+  --color-blue-primary: #1a3a70;
+  --color-blue-dark: #0056a3;
+  --color-blue-light: #bfe2f0;
+  --color-blue-tint: #e2f0f8;
+
+  /* Gray */
+  --color-black: #000000;
+  --color-gray-1: #343434;
+  --color-gray-2: #4e4e4e;
+  --color-gray-3: #707070;
+  --color-gray-4: #808080;
+  --color-gray-5: #bbbbbb;
+  --color-gray-6: #d6d6d6;
+  --color-gray-7: #ebebeb;
+  --color-gray-8: #f6f6f6;
+  --color-white: #ffffff;
+
+  /* Feedback */
+  --color-error: #ce0829;
+  --color-yellow-dark: #a16800;
+  --color-yellow-light: #fbefc4;
+  --color-green-dark: #274d12;
+  --color-green-light: #d1eed8;
+
+  /* Type — Nunito Sans (Bold 700 / Medium 500 / Regular 400) */
+  --font-base: "Nunito Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  /* Effects (Figma "Section" / "Card" / header drop shadows) */
+  --shadow-section: 0 1px 5px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 1px 10px rgba(0, 0, 0, 0.1);
+  --shadow-header: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-button: 0 1px 2px rgba(105, 81, 255, 0.05);
+
+  /* Heading color changes between Step 1 (Gray 2) and Steps 2-6 (Gray 1)
+     in the Figma frames; StepLayout overrides this for Step 1. */
+  --color-heading: var(--color-gray-1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  font-size: 16px;
+  font-weight: var(--fw-medium);
+  color: var(--color-gray-1);
+  background: var(--color-gray-8);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-blue-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

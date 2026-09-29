@@ -1,0 +1,71 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 22px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.control {
+  position: relative;
+  flex: none;
+  width: 20px;
+  height: 20px;
+}
+
+.input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+/* Material "radio_button": 14px ring centered in the 20px cell */
+.circle {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  border: 1.4px solid var(--color-gray-4);
+  border-radius: 50%;
+  background: var(--color-white);
+  transition: border-color 120ms ease;
+}
+
+.input:checked + .circle {
+  border-color: var(--color-blue-dark);
+}
+
+.input:checked + .circle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-blue-dark);
+  transform: translate(-50%, -50%);
+}
+
+.input:focus-visible + .circle {
+  outline: 2px solid var(--color-blue-primary);
+  outline-offset: 3px;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: var(--fw-bold);
+  line-height: normal;
+  color: var(--color-black);
+  white-space: nowrap;
+}
+
+.error .circle {
+  border-color: var(--color-error);
+}

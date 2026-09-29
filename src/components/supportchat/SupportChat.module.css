@@ -1,0 +1,43 @@
+.chat {
+  position: fixed;
+  right: 72px;
+  bottom: 56px;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 36px 12px 32px;
+  border: none;
+  border-radius: 100px;
+  background: var(--color-blue-dark);
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: var(--fw-bold);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.chat:hover {
+  background: var(--color-blue-primary);
+}
+
+.icon {
+  flex: none;
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 1100px) {
+  .chat {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+@media print {
+  .chat {
+    display: none;
+  }
+}

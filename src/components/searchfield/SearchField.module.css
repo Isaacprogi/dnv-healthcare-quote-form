@@ -1,0 +1,26 @@
+.wrap {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  composes: input from "../textinput/TextInput.module.css";
+  padding: 0 44px 0 16px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.icon {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 16px;
+  height: 16px;
+  color: var(--color-black);
+  opacity: 0.5;
+  pointer-events: none;
+}

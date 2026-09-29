@@ -1,0 +1,43 @@
+.choiceRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+}
+
+.subSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.subLabel {
+  font-size: 24px;
+  font-weight: var(--fw-bold);
+  color: var(--color-gray-1);
+}
+
+.uploadPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding: 24px;
+  border: 1px solid var(--color-gray-5);
+  border-radius: 8px;
+  background: var(--color-blue-tint);
+}
+
+.uploadedLabel {
+  font-size: 16px;
+  font-weight: var(--fw-bold);
+  color: var(--color-gray-1);
+}
+
+.locations {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}

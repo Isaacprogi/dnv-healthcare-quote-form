@@ -1,0 +1,63 @@
+/* 992px = 960px content + 16px gutters. Figma spacing: header → progress 40px,
+   progress → card 40px, card → buttons 40px, 56px below the buttons. */
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  max-width: 992px;
+  margin: 0 auto;
+  padding: 40px 16px 56px;
+}
+
+/* Step 1 uses Gray 2 for headings in the Figma frame */
+.firstStep {
+  --color-heading: var(--color-gray-2);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.start {
+  display: flex;
+  gap: 32px;
+}
+
+.end {
+  display: flex;
+  gap: 32px;
+  margin-left: auto;
+}
+
+@media (max-width: 480px) {
+  .footer {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .start,
+  .end {
+    gap: 16px;
+  }
+
+  .start > *,
+  .end > * {
+    flex: 1;
+  }
+}
+
+@media print {
+  .footer {
+    display: none;
+  }
+}

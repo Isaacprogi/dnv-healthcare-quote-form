@@ -1,0 +1,16 @@
+.optionList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.optionsLabel {
+  font-size: 16px;
+  font-weight: var(--fw-bold);
+  color: var(--color-gray-1);
+}
+
+.required {
+  color: var(--color-error);
+}

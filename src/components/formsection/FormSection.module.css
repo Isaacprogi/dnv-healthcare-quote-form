@@ -1,0 +1,32 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: var(--fw-bold);
+  line-height: normal;
+  color: var(--color-heading);
+}
+
+.description {
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  line-height: normal;
+  color: var(--color-gray-4);
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 20px;
+  }
+}

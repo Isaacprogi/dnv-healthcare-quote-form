@@ -1,0 +1,10 @@
+.shell {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+}
+
+@media print {
+  .shell {
+    min-height: 0;
+  }
+}

@@ -1,0 +1,36 @@
+.wrap {
+  position: relative;
+  width: 100%;
+}
+
+.select {
+  composes: input from "../textinput/TextInput.module.css";
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 44px;
+  cursor: pointer;
+}
+
+.placeholder {
+  color: var(--color-gray-4);
+}
+
+/* keep the dropdown's option list readable even when the closed control is gray */
+.select option {
+  color: var(--color-black);
+}
+
+.invalid,
+.invalid:focus {
+  border-color: var(--color-error);
+}
+
+.caret {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  color: var(--color-black);
+  pointer-events: none;
+}
