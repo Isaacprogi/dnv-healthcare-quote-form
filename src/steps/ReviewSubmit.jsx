@@ -60,16 +60,27 @@ export default function Step6ReviewSubmit({ onPrevious, onEditStep, onSubmitted 
     window.print();
   };
 
+  // Whichever way the sites were entered, Review shows one flat list of
+  // locations: manual entries as typed, or every row from every uploaded
+  // CSV file flattened together — same shape, same SummaryPerson rendering.
+  // Every other Site Information summary value (the site count included)
+  // is derived from this single list, so CSV and manual entry can never
+  // disagree with each other again.
+  const reviewLocations =
+    site.inputMethod === "csv"
+      ? site.csvFiles.flatMap((f) => f.locations)
+      : site.locations;
+
   const siteConfigLabel =
     site.configuration === "multiple"
-      ? `Multiple Locations (${site.locations.length} sites)`
+      ? `Multiple Locations (${reviewLocations.length} sites)`
       : site.configuration === "single"
       ? "Single Location"
       : "";
 
   const inputMethodLabel =
     site.inputMethod === "csv"
-      ? `File Upload (${site.csvFile?.name || "no file"})`
+      ? `File Upload (${site.csvFiles.length} file${site.csvFiles.length === 1 ? "" : "s"})`
       : site.inputMethod === "manual"
       ? "Manual Entry"
       : "";
@@ -127,7 +138,7 @@ export default function Step6ReviewSubmit({ onPrevious, onEditStep, onSubmitted 
           <SummarySection title="Site Information" onEdit={() => onEditStep(4)}>
             <SummaryRow label="Site Configuration" value={siteConfigLabel} />
             <SummaryRow label="Input Method" value={inputMethodLabel} />
-            {site.locations.map((loc, i) => (
+            {reviewLocations.map((loc, i) => (
               <SummaryPerson
                 key={loc.id}
                 label={`Practice Location ${i + 1}`}

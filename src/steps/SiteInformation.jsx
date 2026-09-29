@@ -9,6 +9,7 @@ import LocationCard from "../components/locationcard/LocationCard";
 import StepLayout from "../components/steplayout/StepLayout";
 import { useFormState, useFormDispatch } from "../context/FormContext";
 import { validateStep4, hasErrors } from "../utils/validation";
+import { parseSiteCsv } from "../utils/csv";
 import shared from "./Shared.module.css";
 import styles from "./SiteInformation.module.css";
 
@@ -34,7 +35,7 @@ export default function Step4SiteInformation({ onNext, onPrevious }) {
   const update = (payload) => dispatch({ type: "UPDATE_SECTION", section: "site", payload });
 
   const setConfiguration = (configuration) =>
-    update({ configuration, inputMethod: "", locations: [], csvFile: null });
+    update({ configuration, inputMethod: "", locations: [], csvFiles: [] });
 
   const setInputMethod = (inputMethod) => update({ inputMethod });
 
@@ -48,9 +49,48 @@ export default function Step4SiteInformation({ onNext, onPrevious }) {
   const removeLocation = (id) =>
     update({ locations: site.locations.filter((loc) => loc.id !== id) });
 
-  const handleFileSelect = (e) => {
-    const file = e.target.files?.[0];
-    if (file) update({ csvFile: { name: file.name, size: file.size } });
+  // Each uploaded file stays exactly as uploaded (its own FileCard, its own
+  // name/size) — nothing about the upload UI changes. What's new is that we
+  // also parse its rows into location objects, stored alongside the file, so
+  // the Review page can render them the same way manual entries render.
+  const handleFilesSelect = async (files) => {
+    const parsed = await Promise.all(
+      files.map(async (file) => {
+        let locations = [];
+        try {
+          const text = await file.text();
+          locations = parseSiteCsv(text);
+        } catch {
+          locations = []; // unreadable/unsupported file — still shown, just contributes no rows
+        }
+        return { id: crypto.randomUUID(), name: file.name, size: file.size, locations };
+      })
+    );
+    update({ csvFiles: [...site.csvFiles, ...parsed] });
+  };
+
+  const removeCsvFile = (id) =>
+    update({ csvFiles: site.csvFiles.filter((f) => f.id !== id) });
+
+  const handleDownloadTemplate = () => {
+    const headers = [
+      "Street Address",
+      "City",
+      "State",
+      "ZIP Code",
+      "FTEs",
+      "Shifts",
+      "Miles to Main",
+      "Days Open (e.g. M;T;W;TH;F;SA;SU)",
+    ];
+    const csv = headers.map((h) => `"${h}"`).join(",") + "\n";
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "dnv-site-information-template.csv";
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
   const runValidation = () => {
@@ -105,17 +145,22 @@ export default function Step4SiteInformation({ onNext, onPrevious }) {
               {site.inputMethod === "csv" && (
                 <div className={styles.uploadPanel}>
                   <UploadField
-                    onFileSelect={handleFileSelect}
-                    onDownloadTemplate={() => {}}
+                    onFilesSelect={handleFilesSelect}
+                    onDownloadTemplate={handleDownloadTemplate}
                   />
-                  {site.csvFile && (
+                  {site.csvFiles.length > 0 && (
                     <>
                       <p className={styles.uploadedLabel}>Uploaded</p>
-                      <FileCard
-                        name={site.csvFile.name}
-                        size={site.csvFile.size}
-                        onRemove={() => update({ csvFile: null })}
-                      />
+                      <div className={styles.fileList}>
+                        {site.csvFiles.map((f) => (
+                          <FileCard
+                            key={f.id}
+                            name={f.name}
+                            size={f.size}
+                            onRemove={() => removeCsvFile(f.id)}
+                          />
+                        ))}
+                      </div>
                     </>
                   )}
                   {errors.csvFile && <p className={shared.fieldError}>{errors.csvFile}</p>}

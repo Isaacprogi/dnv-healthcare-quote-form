@@ -10,7 +10,7 @@ import { useFormState, useFormDispatch } from "../context/FormContext";
 import { validateStep1, hasErrors } from "../utils/validation";
 import shared from "./Shared.module.css";
 
-/** Step 1 — "New DNV Quote Request": organization + primary contact. */
+
 export default function Step1QuoteRequest({ onNext, onExit }) {
   const { organization, primaryContact } = useFormState();
   const dispatch = useFormDispatch();
@@ -29,7 +29,6 @@ export default function Step1QuoteRequest({ onNext, onExit }) {
   };
 
   const handleSendVerification = () => {
-    // In production this would call an API to send a verification email.
     updateContact({ verified: true });
   };
 

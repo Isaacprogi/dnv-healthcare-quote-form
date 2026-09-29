@@ -79,3 +79,14 @@
 .templateLink:hover {
   text-decoration: underline;
 }
+
+
+.dragging {
+  border-color: var(--color-blue-dark);
+  border-style: solid;
+  background: var(--color-blue-tint);
+}
+
+.dragging .icon {
+  color: var(--color-blue-dark);
+}

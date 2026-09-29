@@ -93,8 +93,8 @@ export function validateStep4({ site }) {
   if (required(site.configuration)) errors.configuration = "Choose single or multiple locations.";
   if (site.configuration === "multiple") {
     if (required(site.inputMethod)) errors.inputMethod = "Choose how to add site information.";
-    if (site.inputMethod === "csv" && !site.csvFile) {
-      errors.csvFile = "Upload a CSV or Excel file.";
+    if (site.inputMethod === "csv" && site.csvFiles.length === 0) {
+      errors.csvFile = "Upload at least one CSV or Excel file.";
     }
     if (site.inputMethod === "manual" && site.locations.length === 0) {
       errors.locations = "Add at least one practice location.";

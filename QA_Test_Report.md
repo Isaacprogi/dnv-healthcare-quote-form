@@ -28,9 +28,7 @@ Here is the updated section for your QA test report:
 | # | Scenario | Result |
 | --- | --- | --- |
 | 2.1 | Continue with no facility type selected | Blocked with "Select a facility type." |
-| 2.2 | Check "Same as Legal Entity Name" in Step 1, then proceed to Step 2 | Option list automatically swaps to the "If Yes" variant (includes "Same as Legal Entity Name" as an option)
-
- |
+| 2.2 | Check "Same as Legal Entity Name" in Step 1, then proceed to Step 2 | Option list automatically swaps to the "If Yes" variant (includes "Same as Legal Entity Name" as an option)|
 | 2.3 | Uncheck "Same as Legal Entity Name" in Step 1, then proceed to Step 2 | Option list renders standard facility types |
 | 2.4 | Select a facility type, go Previous then Next | Selection persists |
 

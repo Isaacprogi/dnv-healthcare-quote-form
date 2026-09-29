@@ -33,7 +33,6 @@ export default function Step2FacilityDetails({ onNext, onPrevious }) {
 
   const update = (payload) => dispatch({ type: "UPDATE_SECTION", section: "facility", payload });
 
-  // Options are automatically derived based on Step 1's "Same as Legal Entity Name" selection
   const options = organization.sameAsLegalEntity ? PART_OF_SYSTEM_OPTIONS : STANDARD_OPTIONS;
 
   const runValidation = () => {

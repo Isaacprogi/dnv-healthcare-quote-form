@@ -35,6 +35,13 @@
   color: var(--color-gray-1);
 }
 
+.fileList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
 .locations {
   display: flex;
   flex-direction: column;

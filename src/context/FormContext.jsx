@@ -24,8 +24,8 @@ export const initialFormState = {
     verified: false,
   },
   facility: {
-  facilityType: "",
-},
+    facilityType: "",
+  },
   leadership: {
     ceo: { firstName: "", lastName: "", phone: "", email: "", sameAsPrimary: false },
     directorOfQuality: { firstName: "", lastName: "", phone: "", email: "", sameAsPrimary: false },
@@ -44,7 +44,7 @@ export const initialFormState = {
   site: {
     configuration: "", // "single" | "multiple"
     inputMethod: "", // "manual" | "csv"
-    csvFile: null, // { name, size } | null
+    csvFiles: [], // [{ id, name, size, locations: [...] }] — multiple files allowed
     locations: [],
   },
   services: {
