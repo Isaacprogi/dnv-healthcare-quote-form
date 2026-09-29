@@ -52,7 +52,6 @@
   gap: 8px;
 }
 
-/* Wraps the hidden <input type=file> as the "Select file" Button look */
 .selectButton {
   composes: button primary sm from "../button/Button.module.css";
   display: inline-flex;

@@ -38,7 +38,6 @@
   transition: transform 150ms ease;
 }
 
-/* Chevron points up when open (Figma default); rotate to point down when collapsed */
 .chevronClosed {
   transform: rotate(180deg);
 }

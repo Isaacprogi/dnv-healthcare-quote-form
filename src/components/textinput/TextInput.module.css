@@ -1,5 +1,3 @@
-/* Figma "Input": 44px tall, 1px #BBB border, 6px radius, 14px Medium text.
-   Other controls (select, date) `compose` this class so they stay identical. */
 .input {
   width: 100%;
   height: 44px;
@@ -19,7 +17,6 @@
   opacity: 1;
 }
 
-/* Focused state: 1px #0056A3 stroke */
 .input:focus,
 .input:focus-visible {
   outline: none;

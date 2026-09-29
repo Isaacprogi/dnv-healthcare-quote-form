@@ -19,7 +19,6 @@
   background: var(--color-blue-tint);
 }
 
-/* Figma "Option / Chosed" */
 .selected,
 .selected:hover {
   background: var(--color-blue-tint);

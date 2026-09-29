@@ -15,7 +15,6 @@
   color: var(--color-gray-4);
 }
 
-/* keep the dropdown's option list readable even when the closed control is gray */
 .select option {
   color: var(--color-black);
 }

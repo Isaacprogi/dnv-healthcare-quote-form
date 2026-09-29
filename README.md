@@ -126,7 +126,18 @@ Here is the updated **Facility details** section for your documentation or Readm
 
 - **Standards to Apply:** The available standards were taken from the populated Review & Submit design because the initial input design only displayed placeholder tags.
 
-- **CSV/Excel upload:** The upload flow accepts a file and stores its name. Parsing the file and importing its rows into the form are outside the scope of this assessment.
+- **CSV/Excel upload:** The "Upload CSV / Excel" flow accepts multiple files (drag-and-drop or
+  the file picker), and each file is parsed with PapaParse against the
+  "Download CSV Template" column headers into the same location-object
+  shape Manual Entry produces. Every file still shows as its own
+  removable `FileCard`; nothing about the upload UI changes. On Review &
+  Submit, the parsed rows from every uploaded file are flattened into one
+  list and rendered exactly like manual entries — the "N sites" count and
+  the per-site cards both read from that same list, so CSV and Manual
+  Entry can't disagree. `.xlsx`/`.xls` files are accepted by the file
+  picker's `accept` filter but are not actually parsed (PapaParse is
+  CSV-only); an uploaded `.xlsx` file shows as a `FileCard` but
+  contributes zero parsed rows.
 
 - **PDF download:** The Download as PDF action uses the browser's print dialog with print-friendly CSS rather than a client-side PDF generation library.
 

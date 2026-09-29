@@ -7,7 +7,6 @@
   user-select: none;
 }
 
-/* 20px cell; the Material "check_box" glyph inside is an 11.25px square */
 .control {
   position: relative;
   flex: none;

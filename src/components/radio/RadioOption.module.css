@@ -51,6 +51,7 @@
   border-radius: 50%;
   background: var(--color-blue-dark);
   transform: translate(-50%, -50%);
+  
 }
 
 .input:focus-visible + .circle {
@@ -63,7 +64,7 @@
   font-weight: var(--fw-bold);
   line-height: normal;
   color: var(--color-black);
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .error .circle {
