@@ -21,12 +21,18 @@
 | 1.5 | Edit the email after verifying | Badge reverts to "Not Verified" (a changed, unconfirmed email shouldn't show as verified) |
 | 1.6 | Fill all required fields, click Continue | Advances to Step 2, values persist if you click Previous |
 
+Here is the updated section for your QA test report:
+
 ### Step 2 — Facility Details
+
 | # | Scenario | Result |
-|---|---|---|
+| --- | --- | --- |
 | 2.1 | Continue with no facility type selected | Blocked with "Select a facility type." |
-| 2.2 | Toggle "part of a larger legal entity" checkbox | Option list swaps to the "Same as Legal Entity Name" variant and the previous selection clears (avoids submitting a stale value from the other list) |
-| 2.3 | Select a facility type, go Previous then Next | Selection persists |
+| 2.2 | Check "Same as Legal Entity Name" in Step 1, then proceed to Step 2 | Option list automatically swaps to the "If Yes" variant (includes "Same as Legal Entity Name" as an option)
+
+ |
+| 2.3 | Uncheck "Same as Legal Entity Name" in Step 1, then proceed to Step 2 | Option list renders standard facility types |
+| 2.4 | Select a facility type, go Previous then Next | Selection persists |
 
 ### Step 3 — Leadership Contacts
 | # | Scenario | Result |
