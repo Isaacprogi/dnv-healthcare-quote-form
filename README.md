@@ -119,7 +119,10 @@ Validation runs when users attempt to continue or submit the form. Errors are di
 
 ## Assumptions Made
 
-- **Facility details:** The Figma designs contain two variants of the Facility Details options but do not show an explicit control for switching between them. A checkbox was introduced to represent whether a facility belongs to a larger legal entity or health system and to determine which option set is displayed.
+Here is the updated **Facility details** section for your documentation or Readme:
+
+- **Facility details:** The Figma designs present two variants for the Facility Details options ("Facility Details" and "Facility Details-If Yes"). Rather than introducing an unnecessary UI control on Step 2, the displayed option set is dynamically derived from the `sameAsLegalEntity` selection made in Step 1 (**Quote Request**). If "Same as Legal Entity Name" is checked in Step 1, Step 2 automatically renders the system variant containing "Same as Legal Entity Name" as an option.
+
 
 - **Standards to Apply:** The available standards were taken from the populated Review & Submit design because the initial input design only displayed placeholder tags.
 

@@ -24,9 +24,8 @@ export const initialFormState = {
     verified: false,
   },
   facility: {
-    facilityType: "",
-    sameAsLegalEntityName: false,
-  },
+  facilityType: "",
+},
   leadership: {
     ceo: { firstName: "", lastName: "", phone: "", email: "", sameAsPrimary: false },
     directorOfQuality: { firstName: "", lastName: "", phone: "", email: "", sameAsPrimary: false },
