@@ -2,7 +2,7 @@
 
 ## Tools Used
 
-* Manual testing of the app in Chromium using `npm run dev`
+* Manual testing of the app in Google Chrome using `npm run dev`.
 * `npm run build` (Vite) to check that the app builds successfully
 * ESLint 10 with the flat config (eslint.config.js) to check for linting issues
 * Browser DevTools device toolbar to check the layout at 375px, 768px, and 1280px widths
