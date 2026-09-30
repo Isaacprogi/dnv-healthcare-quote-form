@@ -139,6 +139,8 @@ Here is the updated **Facility details** section for your documentation or Readm
   CSV-only); an uploaded `.xlsx` file shows as a `FileCard` but
   contributes zero parsed rows.
 
+- **Header/navigation:** The Figma designs show different header layouts for Step 1 and the subsequent form screens. Step 1 uses a compact navigation bar, while Step 2 onward uses a prominent DNV Healthcare header. I assumed this distinction is intentional and applied the Step 2 header treatment consistently to Steps 2–6.
+
 - **PDF download:** The Download as PDF action uses the browser's print dialog with print-friendly CSS rather than a client-side PDF generation library.
 
 - **CSV export:** The Export to CSV action generates a flat CSV file containing key submitted fields in the browser.

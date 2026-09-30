@@ -85,7 +85,7 @@
 
 | #   | Scenario                                        | Result                                                                                                                                                     |
 | --- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| C.1 | Resize the app to 375px wide                    | Footer buttons stack and take up the full width. Step labels in the progress track are hidden while the progress bars remain visible, preventing overflow. |
+| C.1 | Resize the app to 375px wide                    | Footer and export buttons stack and take up the full width. Step labels in the progress track are hidden while the progress bars remain visible, preventing overflow. |
 | C.2 | Navigate through a step using only the keyboard | Every input, checkbox, radio button, and button displays a visible focus ring.                                                                             |
 | C.3 | Refresh the page while partway through the form | The form state resets. This is a known limitation, as persistence is not included in the current scope.                                                    |
 
