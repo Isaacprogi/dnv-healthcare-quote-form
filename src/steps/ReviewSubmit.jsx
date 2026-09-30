@@ -256,13 +256,26 @@ export default function Step6ReviewSubmit({ onPrevious, onEditStep, onSubmitted 
           </p>
 
           <div className={styles.exportActions}>
-            <Button variant="secondary" size="sm" onClick={handleDownloadPdf}>
-              Download as PDF
-            </Button>
-            <Button variant="secondary" size="sm" onClick={handleExportCsv}>
-              Export to CSV
-            </Button>
-          </div>
+  <div className={styles.downloadPdf}>
+    <Button
+      variant="secondary"
+      size="sm"
+      onClick={handleDownloadPdf}
+    >
+      Download as PDF
+    </Button>
+  </div>
+
+  <div className={styles.exportCsv}>
+    <Button
+      variant="secondary"
+      size="sm"
+      onClick={handleExportCsv}
+    >
+      Export to CSV
+    </Button>
+  </div>
+</div>
 
           {submitted && (
             <p className={styles.success}>
