@@ -1,4 +1,4 @@
-import { FileIcon, CloseBadgeIcon } from "../icons/Icons";
+import { FileIcon, CloseBadgeIcon } from "../../data/Icons";
 import { formatFileSize } from "../../utils/format";
 import cx from "../../utils/cx";
 import styles from "./FileCard.module.css";

@@ -33,15 +33,83 @@ export default function Step6ReviewSubmit({ onPrevious, onEditStep, onSubmitted 
   };
 
   const handleExportCsv = () => {
+    const contactRows = (label, c, { withAddress = false } = {}) => {
+      const rows = [
+        [`${label} - First Name`, c.firstName],
+        [`${label} - Last Name`, c.lastName],
+        [`${label} - Same as Primary Contact`, c.sameAsPrimary ? "Yes" : "No"],
+        [`${label} - Phone`, c.phone],
+        [`${label} - Email`, c.email],
+      ];
+      if (withAddress) {
+        rows.push(
+          [`${label} - Billing Street Address`, c.street],
+          [`${label} - Billing City`, c.city],
+          [`${label} - Billing State`, c.state],
+          [`${label} - Billing ZIP Code`, c.zip]
+        );
+      }
+      return rows;
+    };
+
+    const locationRows = reviewLocations.flatMap((loc, i) => {
+      const label = `Practice Location ${i + 1}`;
+      return [
+        [`${label} - Street Address`, loc.address],
+        [`${label} - City`, loc.city],
+        [`${label} - State`, loc.state],
+        [`${label} - ZIP Code`, loc.zip],
+        [`${label} - FTEs`, loc.ftes],
+        [`${label} - Shifts`, loc.shifts],
+        [`${label} - Miles to Main`, loc.milesToMain],
+        [`${label} - Days Open`, loc.daysOpen.join("; ")],
+      ];
+    });
+
     const rows = [
       ["Field", "Value"],
+
+      // Step 1 — DNV Quote Request
       ["Legal Entity Name", organization.legalEntityName],
+      ["Same as Legal Entity Name (d/b/a)", organization.sameAsLegalEntity ? "Yes" : "No"],
       ["d/b/a Name", organization.dbaName],
+      ["Primary Contact - First Name", primaryContact.firstName],
+      ["Primary Contact - Last Name", primaryContact.lastName],
+      ["Primary Contact - Title", primaryContact.title],
+      ["Primary Contact - Work Phone", primaryContact.workPhone],
+      ["Primary Contact - Cell Phone", primaryContact.cellPhone],
+      ["Primary Contact - Email", primaryContact.email],
+      ["Primary Contact - Email Verified", primaryContact.verified ? "Yes" : "No"],
+
+      // Step 2 — Facility Details
+      ["Part of Larger Legal Entity / Health System", facility.sameAsLegalEntityName ? "Yes" : "No"],
       ["Facility Type", facility.facilityType],
-      ["Primary Contact", `${primaryContact.firstName} ${primaryContact.lastName}`],
-      ["Primary Contact Email", primaryContact.email],
+
+      // Step 3 — Leadership Contacts
+      ...contactRows("CEO", leadership.ceo),
+      ...contactRows("Director of Quality", leadership.directorOfQuality),
+      ...contactRows("Invoicing Contact", leadership.invoicing, { withAddress: true }),
+
+      // Step 4 — Site Information
       ["Site Configuration", site.configuration],
-      ["Services", services.selected.join("; ")],
+      ["Site Input Method", site.inputMethod],
+      ["Uploaded Files", site.csvFiles.map((f) => f.name).join("; ")],
+      ...locationRows,
+
+      // Step 5 — Services & Certifications
+      ["Services Provided", services.selected.join("; ")],
+      ["Other Services", services.otherServices.filter(Boolean).join("; ")],
+      ["Standards to Apply", services.standards.join("; ")],
+      ["Expiration Date of Current Stroke Certification", formatDate(services.strokeCertExpiration)],
+      ["Date of Application", formatDate(services.applicationDate)],
+      [
+        "Dates of Last 25 Thrombolytic Administrations",
+        services.thrombolyticDates.map(formatDate).join("; "),
+      ],
+      ["Dates of Last 15 Thrombectomies", services.thrombectomyDates.map(formatDate).join("; ")],
+
+      // Step 6 — Review & Submit
+      ["Certified Accurate and Complete", review.certified ? "Yes" : "No"],
     ];
     const csv = rows.map((r) => r.map((v) => `"${(v || "").replace(/"/g, '""')}"`).join(",")).join("\n");
     const blob = new Blob([csv], { type: "text/csv" });

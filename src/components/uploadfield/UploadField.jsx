@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { UploadCloudIcon } from "../icons/Icons";
+import { UploadCloudIcon } from "../../data/Icons";
 import cx from "../../utils/cx";
 import styles from "./UploadField.module.css";
 import { VALID_EXTENSIONS } from "../../data";

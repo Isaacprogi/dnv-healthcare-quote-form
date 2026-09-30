@@ -13,7 +13,7 @@ import styles from "./App.module.css";
 
 const TOTAL_STEPS = 6;
 
-function FormWizard() {
+function DnvForm() {
   const [step, setStep] = useState(1);
 
   const goTo = (n) => {
@@ -41,7 +41,9 @@ function FormWizard() {
       case 4:
         return <Step4SiteInformation onNext={next} onPrevious={previous} />;
       case 5:
-        return <Step5ServicesCertifications onNext={next} onPrevious={previous} />;
+        return (
+          <Step5ServicesCertifications onNext={next} onPrevious={previous} />
+        );
       case 6:
         return <Step6ReviewSubmit onPrevious={previous} onEditStep={goTo} />;
       default:
@@ -60,7 +62,7 @@ function FormWizard() {
 export default function App() {
   return (
     <FormProvider>
-      <FormWizard />
+      <DnvForm />
     </FormProvider>
   );
 }

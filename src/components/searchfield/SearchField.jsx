@@ -1,4 +1,4 @@
-import { SearchIcon } from "../icons/Icons";
+import { SearchIcon } from "../../data/Icons";
 import styles from "./SearchField.module.css";
 
 export default function SearchField({

@@ -147,7 +147,14 @@ Here is the updated **Facility details** section for your documentation or Readm
 
 ## Known Issues and Limitations
 
-- **CSV/Excel import:** Uploaded files are not parsed or validated against the CSV template. A production implementation could use a parsing library such as PapaParse and provide a preview and editing interface.
+- **CSV/Excel import:** CSV upload parses rows but does not validate them: a malformed row
+  (missing ZIP, non-numeric FTEs, an unrecognized "Days Open" code) is
+  imported as-is with no error surfaced, and a parsed location can't be
+  edited on the Review page the way a manually-entered one can (editing
+  requires going back to Step 4 and re-uploading). Only `.csv` is
+  actually parsed; `.xlsx`/`.xls` files upload but contribute no rows,
+  since that needs a separate spreadsheet-parsing library (e.g. SheetJS)
+  which wasn't added.
 
 - **PDF generation:** PDF export relies on the browser's print-to-PDF functionality rather than generating a PDF file directly.
 

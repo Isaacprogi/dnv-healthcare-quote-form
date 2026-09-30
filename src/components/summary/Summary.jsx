@@ -1,5 +1,5 @@
 import { useId, useState } from "react";
-import { ChevronUpIcon } from "../icons/Icons";
+import { ChevronUpIcon } from "../../data/Icons";
 import Chip from "../chip/Chip";
 import cx from "../../utils/cx";
 import styles from "./Summary.module.css";

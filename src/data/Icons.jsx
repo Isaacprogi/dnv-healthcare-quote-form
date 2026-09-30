@@ -1,10 +1,3 @@
-/**
- * Icons — every glyph below was exported from the Figma file
- * (paths are the exact vector data). They paint with currentColor, so
- * color is always set from the consuming component's CSS module and
- * size from its `className`.
- */
-
 export function ManageAccountsIcon({ className }) {
   return (
     <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
@@ -95,6 +88,22 @@ export function FileIcon({ className }) {
       <path strokeWidth="1.375" d="M16 13H8" />
       <path strokeWidth="1.375" d="M16 17H8" />
       <path strokeWidth="1.375" d="M10 9H9H8" />
+    </svg>
+  );
+}
+
+export function CaretDownIcon({ className }) {
+  return (
+    <svg
+      className={className}
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M5 8L10 13L15 8L5 8Z" />
     </svg>
   );
 }

@@ -91,3 +91,9 @@
     line-height: 36px;
   }
 }
+
+@media print {
+  .header {
+    position: static;
+  }
+}

@@ -1,4 +1,4 @@
-import { ManageAccountsIcon } from "../icons/Icons";
+import { ManageAccountsIcon } from "../../data/Icons";
 import styles from "./SupportChat.module.css";
 
 export default function SupportChat({ onClick }) {

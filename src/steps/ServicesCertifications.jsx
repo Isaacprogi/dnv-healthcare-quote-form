@@ -9,7 +9,7 @@ import SearchField from "../components/searchfield/SearchField";
 import DateField from "../components/datefield/DateField";
 import DateTagInput from "../components/datetaginput/DateTagInput";
 import MultiSelectTags from "../components/multiselecttags/MultiSelectTags";
-import { CloseIcon } from "../components/icons/Icons";
+import { CloseIcon } from "../data/Icons";
 import StepLayout from "../components/steplayout/StepLayout";
 import { useFormState, useFormDispatch } from "../context/FormContext";
 import shared from "./Shared.module.css";

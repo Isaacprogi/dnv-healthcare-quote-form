@@ -9,7 +9,7 @@
   font-size: 14px;
   font-weight: var(--fw-medium);
   line-height: normal;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .outline {

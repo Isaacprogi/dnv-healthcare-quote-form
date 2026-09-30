@@ -1,4 +1,4 @@
-import { CloseIcon, CloseDiscIcon } from "../icons/Icons";
+import { CloseIcon, CloseDiscIcon } from "../../data/Icons";
 import cx from "../../utils/cx";
 import styles from "./Chip.module.css";
 

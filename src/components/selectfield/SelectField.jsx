@@ -1,5 +1,5 @@
 import FormField from "../formfield/FormField";
-import { CaretDownIcon } from "../icons/CaretDownIcon";
+import { CaretDownIcon } from "../../data/Icons";
 import cx from "../../utils/cx";
 import styles from "./SelectField.module.css";
 
@@ -40,7 +40,6 @@ export function SelectControl({
   );
 }
 
-/** SelectField — labeled dropdown (Figma "Drop down"). */
 export default function SelectField({
   id,
   label,
