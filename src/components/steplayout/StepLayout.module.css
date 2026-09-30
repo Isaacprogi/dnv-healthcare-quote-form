@@ -38,6 +38,18 @@
 }
 
 @media (max-width: 480px) {
+  .end {
+  margin-left: 0;
+  flex-basis: 100%;
+}
+  .start {
+  flex-basis: 100%;
+}
+
+.start > button,
+.end > button {
+  flex: 1;
+}
 }
 
 @media print {
