@@ -12,20 +12,8 @@ import { validateStep4, hasErrors } from "../utils/validation";
 import { parseSiteCsv } from "../utils/csv";
 import shared from "./Shared.module.css";
 import styles from "./SiteInformation.module.css";
+import { emptyLocation } from "../utils/functions";
 
-function emptyLocation() {
-  return {
-    id: crypto.randomUUID(),
-    address: "",
-    city: "",
-    state: "",
-    zip: "",
-    ftes: "",
-    shifts: "",
-    milesToMain: "",
-    daysOpen: [],
-  };
-}
 
 export default function Step4SiteInformation({ onNext, onPrevious }) {
   const { site } = useFormState();

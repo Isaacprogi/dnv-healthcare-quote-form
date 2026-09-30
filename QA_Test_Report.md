@@ -21,7 +21,6 @@
 | 1.5 | Edit the email after verifying | Badge reverts to "Not Verified" (a changed, unconfirmed email shouldn't show as verified) |
 | 1.6 | Fill all required fields, click Continue | Advances to Step 2, values persist if you click Previous |
 
-Here is the updated section for your QA test report:
 
 ### Step 2 — Facility Details
 
@@ -49,8 +48,16 @@ Here is the updated section for your QA test report:
 | 4.3 | Choose Manual Entry, Continue with 0 locations added | Blocked with "Add at least one practice location." |
 | 4.4 | Add a location, fill fields, toggle days open | Days chips toggle independently per location |
 | 4.5 | Add 3 locations, remove the 2nd | Only the 2nd is removed; 1st/3rd keep their data |
-| 4.6 | Choose Upload CSV, select a file | File name appears in the "uploaded" row with a remove (×) control |
-| 4.7 | Switch from Multiple back to Single Location | Locations/CSV state clears so a stale multi-site payload can't leak into a single-site submission |
+| 4.6 | Choose Upload CSV, select a file via "Select file(s)" | File appears in the "Uploaded" list as its own `FileCard` (name + size) with a remove control; its rows are parsed in the background |
+| 4.7 | Select/drop a second file without removing the first | Both files remain listed independently; each keeps its own parsed rows |
+| 4.8 | Drag a valid `.csv` file onto the dashed zone | Drop zone highlights while dragging; file is accepted the same as picking it via the button |
+| 4.9 | Drag a file with an unsupported extension (e.g. `.pdf`) onto the drop zone | Silently ignored — not added to the uploaded list, no error shown |
+| 4.10 | Upload 2 files, remove the 1st | Only the 1st file (and its parsed rows) is removed; the 2nd file and its rows are unaffected |
+| 4.11 | Continue with Upload CSV chosen and 0 files uploaded | Blocked with "Upload at least one CSV or Excel file." |
+| 4.12 | Upload a `.csv` whose rows don't match the template headers (e.g. a random file) | File still appears in the uploaded list; contributes 0 parsed locations (no crash, no error surfaced) |
+| 4.13 | Click "Download CSV Template" | Downloads `dnv-site-information-template.csv` with the 8 expected column headers and no data rows |
+| 4.14 | Switch from Multiple back to Single Location | Locations *and* uploaded CSV files/parsed rows all clear, so a stale multi-site payload can't leak into a single-site submission |
+
 
 ### Step 5 — Services & Certifications
 | # | Scenario | Result |
