@@ -7,7 +7,7 @@ A six-step React form that guides healthcare organizations through a DNV Healthc
 
 | Layer | Technology |
 |---|---|
-| Framework | React 18 (JavaScript, function components, and hooks) |
+| Framework | React 19 (JavaScript, function components, and hooks) |
 | Build Tool | Vite |
 | Styling | Pure CSS with CSS custom properties |
 | State Management | React Context and `useReducer` |

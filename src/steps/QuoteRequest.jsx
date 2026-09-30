@@ -6,7 +6,7 @@ import Checkbox from "../components/checkbox/Checkbox";
 import Button from "../components/button/Button";
 import StatusBadge from "../components/statusbadge/StatusBadge";
 import StepLayout from "../components/steplayout/StepLayout";
-import { useFormState, useFormDispatch } from "../context/FormContext";
+import { useFormState, useFormDispatch } from "../context/FormHooks";
 import { validateStep1, hasErrors } from "../utils/validation";
 import shared from "./Shared.module.css";
 

@@ -3,7 +3,7 @@ import Card from "../components/card/Card";
 import FormSection from "../components/formsection/FormSection";
 import ContactFieldset from "../components/contactfieldset/ContactFieldset";
 import StepLayout from "../components/steplayout/StepLayout";
-import { useFormState, useFormDispatch } from "../context/FormContext";
+import { useFormState, useFormDispatch } from "../context/FormHooks";
 import { validateStep3, hasErrors } from "../utils/validation";
 
 export default function Step3LeadershipContacts({ onNext, onPrevious }) {

@@ -3,7 +3,7 @@ import Card from "../components/card/Card";
 import FormSection from "../components/formsection/FormSection";
 import RadioOption from "../components/radio/RadioOption";
 import StepLayout from "../components/steplayout/StepLayout";
-import { useFormState, useFormDispatch } from "../context/FormContext";
+import { useFormState, useFormDispatch } from "../context/FormHooks";
 import { validateStep2, hasErrors } from "../utils/validation";
 import shared from "./Shared.module.css";
 import styles from "./FacilityDetails.module.css";

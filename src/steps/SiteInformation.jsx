@@ -7,31 +7,34 @@ import UploadField from "../components/uploadfield/UploadField";
 import FileCard from "../components/filecard/FileCard";
 import LocationCard from "../components/locationcard/LocationCard";
 import StepLayout from "../components/steplayout/StepLayout";
-import { useFormState, useFormDispatch } from "../context/FormContext";
+import { useFormState, useFormDispatch } from "../context//FormHooks";
 import { validateStep4, hasErrors } from "../utils/validation";
 import { parseSiteCsv } from "../utils/csv";
 import shared from "./Shared.module.css";
 import styles from "./SiteInformation.module.css";
 import { emptyLocation } from "../utils/functions";
 
-
 export default function Step4SiteInformation({ onNext, onPrevious }) {
   const { site } = useFormState();
   const dispatch = useFormDispatch();
   const [errors, setErrors] = useState({});
 
-  const update = (payload) => dispatch({ type: "UPDATE_SECTION", section: "site", payload });
+  const update = (payload) =>
+    dispatch({ type: "UPDATE_SECTION", section: "site", payload });
 
   const setConfiguration = (configuration) =>
     update({ configuration, inputMethod: "", locations: [], csvFiles: [] });
 
   const setInputMethod = (inputMethod) => update({ inputMethod });
 
-  const addLocation = () => update({ locations: [...site.locations, emptyLocation()] });
+  const addLocation = () =>
+    update({ locations: [...site.locations, emptyLocation()] });
 
   const updateLocation = (id, payload) =>
     update({
-      locations: site.locations.map((loc) => (loc.id === id ? { ...loc, ...payload } : loc)),
+      locations: site.locations.map((loc) =>
+        loc.id === id ? { ...loc, ...payload } : loc,
+      ),
     });
 
   const removeLocation = (id) =>
@@ -49,10 +52,16 @@ export default function Step4SiteInformation({ onNext, onPrevious }) {
           const text = await file.text();
           locations = parseSiteCsv(text);
         } catch {
-          locations = []; // unreadable/unsupported file — still shown, just contributes no rows
+          // Unreadable/unsupported file — still show the file with no rows.
         }
-        return { id: crypto.randomUUID(), name: file.name, size: file.size, locations };
-      })
+
+        return {
+          id: crypto.randomUUID(),
+          name: file.name,
+          size: file.size,
+          locations,
+        };
+      }),
     );
     update({ csvFiles: [...site.csvFiles, ...parsed] });
   };
@@ -88,10 +97,18 @@ export default function Step4SiteInformation({ onNext, onPrevious }) {
   };
 
   return (
-    <StepLayout currentStep={4} onPrevious={onPrevious} onContinue={() => runValidation() && onNext()}>
+    <StepLayout
+      currentStep={4}
+      onPrevious={onPrevious}
+      onContinue={() => runValidation() && onNext()}
+    >
       <Card>
         <FormSection title="Do you have multiple sites or locations?">
-          <div className={styles.choiceRow} role="radiogroup" aria-label="Site configuration">
+          <div
+            className={styles.choiceRow}
+            role="radiogroup"
+            aria-label="Site configuration"
+          >
             <RadioCard
               name="siteConfiguration"
               title="Single Location"
@@ -107,12 +124,20 @@ export default function Step4SiteInformation({ onNext, onPrevious }) {
               onSelect={() => setConfiguration("multiple")}
             />
           </div>
-          {errors.configuration && <p className={shared.fieldError}>{errors.configuration}</p>}
+          {errors.configuration && (
+            <p className={shared.fieldError}>{errors.configuration}</p>
+          )}
 
           {site.configuration === "multiple" && (
             <div className={styles.subSection}>
-              <p className={styles.subLabel}>How would you like to add your site information?</p>
-              <div className={styles.choiceRow} role="radiogroup" aria-label="Input method">
+              <p className={styles.subLabel}>
+                How would you like to add your site information?
+              </p>
+              <div
+                className={styles.choiceRow}
+                role="radiogroup"
+                aria-label="Input method"
+              >
                 <RadioCard
                   name="inputMethod"
                   title="Upload CSV / Excel"
@@ -128,7 +153,9 @@ export default function Step4SiteInformation({ onNext, onPrevious }) {
                   onSelect={() => setInputMethod("manual")}
                 />
               </div>
-              {errors.inputMethod && <p className={shared.fieldError}>{errors.inputMethod}</p>}
+              {errors.inputMethod && (
+                <p className={shared.fieldError}>{errors.inputMethod}</p>
+              )}
 
               {site.inputMethod === "csv" && (
                 <div className={styles.uploadPanel}>
@@ -151,7 +178,9 @@ export default function Step4SiteInformation({ onNext, onPrevious }) {
                       </div>
                     </>
                   )}
-                  {errors.csvFile && <p className={shared.fieldError}>{errors.csvFile}</p>}
+                  {errors.csvFile && (
+                    <p className={shared.fieldError}>{errors.csvFile}</p>
+                  )}
                 </div>
               )}
 
@@ -166,7 +195,9 @@ export default function Step4SiteInformation({ onNext, onPrevious }) {
                       onRemove={() => removeLocation(loc.id)}
                     />
                   ))}
-                  {errors.locations && <p className={shared.fieldError}>{errors.locations}</p>}
+                  {errors.locations && (
+                    <p className={shared.fieldError}>{errors.locations}</p>
+                  )}
                   <Button variant="secondary" size="sm" onClick={addLocation}>
                     + Add Practice Location
                   </Button>

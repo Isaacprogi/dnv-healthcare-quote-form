@@ -5,7 +5,7 @@ import Checkbox from "../components/checkbox/Checkbox";
 import Button from "../components/button/Button";
 import { SummarySection, SummaryRow, SummaryPerson, SummaryChips } from "../components/summary/Summary";
 import StepLayout from "../components/steplayout/StepLayout";
-import { useFormState, useFormDispatch } from "../context/FormContext";
+import { useFormState, useFormDispatch } from "../context/FormHooks";
 import { validateStep6, hasErrors } from "../utils/validation";
 import { formatDate } from "../utils/format";
 import shared from "./Shared.module.css";
@@ -26,7 +26,6 @@ export default function Step6ReviewSubmit({ onPrevious, onEditStep, onSubmitted 
     if (hasErrors(result)) return;
 
     // Required by the assessment: log the full payload to the console on submit.
-    // eslint-disable-next-line no-console
     console.log("DNV Healthcare quote request submitted:", state);
     setSubmitted(true);
     onSubmitted?.(state);

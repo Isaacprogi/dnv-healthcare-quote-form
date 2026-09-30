@@ -4,7 +4,7 @@
 
 * Manual testing of the app in Chromium using `npm run dev`
 * `npm run build` (Vite) to check that the app builds successfully
-* ESLint (`eslint:recommended`, `plugin:react`, `plugin:react-hooks`) to check for linting issues
+* ESLint 10 with the flat config (eslint.config.js) to check for linting issues
 * Browser DevTools device toolbar to check the layout at 375px, 768px, and 1280px widths
 
 ## Test Scenarios Executed
@@ -94,6 +94,14 @@
 1. **Unused prop causing a lint error.** `StepLayout` accepted a `totalSteps` prop that was never used inside the component. ESLint flagged the unused destructured parameter through `no-unused-vars`. I removed the unused parameter.
 
 2. **Verified badge remaining visible after an email change.** After clicking "Send Verification Email", editing the email address left the "Verified" badge visible for the new, unconfirmed address. I fixed this by resetting `verified: false` whenever the email field changes.
+
+## Tooling Updates
+
+- Updated the project to React 19 and the latest Vite setup.
+- Migrated ESLint to the flat configuration format required by ESLint 10.
+- Separated form state, reducer, and React contexts from `FormContext.jsx` so the React Fast Refresh lint rule can be satisfied without disabling the rule.
+- Removed redundant lint suppression and unused assignments found during the migration.
+
 
 ## Not Covered (Out of Scope for This Pass)
 
