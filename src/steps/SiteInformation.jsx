@@ -7,7 +7,7 @@ import UploadField from "../components/uploadfield/UploadField";
 import FileCard from "../components/filecard/FileCard";
 import LocationCard from "../components/locationcard/LocationCard";
 import StepLayout from "../components/steplayout/StepLayout";
-import { useFormState, useFormDispatch } from "../context//FormHooks";
+import { useFormState, useFormDispatch } from "../context/form/FormHooks";
 import { validateStep4, hasErrors } from "../utils/validation";
 import { parseSiteCsv } from "../utils/csv";
 import shared from "./Shared.module.css";

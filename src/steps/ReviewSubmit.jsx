@@ -5,7 +5,7 @@ import Checkbox from "../components/checkbox/Checkbox";
 import Button from "../components/button/Button";
 import { SummarySection, SummaryRow, SummaryPerson, SummaryChips } from "../components/summary/Summary";
 import StepLayout from "../components/steplayout/StepLayout";
-import { useFormState, useFormDispatch } from "../context/FormHooks";
+import { useFormState, useFormDispatch } from "../context/form/FormHooks";
 import { validateStep6, hasErrors } from "../utils/validation";
 import { formatDate } from "../utils/format";
 import shared from "./Shared.module.css";
